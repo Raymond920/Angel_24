@@ -4,7 +4,7 @@
     </head>
     <body>
         <header>
-            <h1>Angel 24</h1>
+            <h1>Cart</h1>
         </header>
     </body>
 </html>

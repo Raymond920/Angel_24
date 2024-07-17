@@ -6,5 +6,6 @@
         <header>
             <h1>Angel 24</h1>
         </header>
+        <?php include('includes/navigation.php'); ?>
     </body>
 </html>
