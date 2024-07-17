@@ -6,5 +6,6 @@
         <header>
             <h1>Cart</h1>
         </header>
+        <?php include('../includes/navigation.php'); ?>
     </body>
 </html>
