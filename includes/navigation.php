@@ -1,6 +1,6 @@
 <style>
     .first-color { 
-        background: #323643; 
+        background: white; 
     }
         
     .second-color { 
@@ -27,15 +27,19 @@
 
     li a {
         display: block;
-        color: white;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-family: 'Tahoma', sans-serif;
+        font-family: Verdana, sans-serif;
     }
 
     li a:hover {
         background-color: #606470;
+    }
+
+    #icon {
+        display: block;
+        height: fit-content;
     }
     
 </style>
@@ -44,6 +48,7 @@
 <nav>
     <ul class="first-color">
         <li><a href="/Angel_24">Home</a></li>
+        <li><a href="/Angel_24"><img src="/Angel_24/Angel24_icon.png" href="/Angel_24" id="icon"></a></li>
 		<li><a href="/Angel_24/listing">Listing</a></li>
 		<li><a href="/Angel_24/item">Item Details</a></li>
 		<li><a href="/Angel_24/cart">Cart</a></li>
