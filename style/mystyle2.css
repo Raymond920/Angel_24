@@ -1,0 +1,92 @@
+body {
+    color: rgb(13, 13, 13);
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h3 {
+    text-align: center;
+}
+
+#icon {
+    height: 70px;
+    position: relative;
+    left: 20px;
+}
+
+#wallpaper {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.loginForm {
+    background-color: white;
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    border-radius: 12px;
+    border: 1px solid #888;
+}
+
+.formContent {
+    margin: 5% auto 5% auto;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button,
+#register {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background-color: #93deff;
+    color: white;
+    padding: 14px 20px;
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+#register {
+    margin-top: 10px;
+    width: 100%; /* Ensure width is consistent with the button */
+}
+
+button:hover,
+#register:hover {
+    opacity: 0.8;
+}
+
+.container {
+    padding: 16px;
+}
+
+#forgotPassword {
+    text-align: right;
+}

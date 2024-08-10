@@ -1,5 +1,5 @@
 <div class="top_nav">
-    <a href="/Angel_24">Home</a>
+    <a href="/Angel_24/home">Home</a>
     <a href="/Angel_24/item">Item</a>
     <a href="/Angel_24/cart">Cart</a>
     <a href="/Angel_24/contact">Contact</a>
