@@ -22,10 +22,25 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate name
     if (empty($_POST['username'])) {
         $nameErr = 'Name is required';
+    } else {
+        $name = test_input($_POST['username']);
+
+        // Check if username already exists
+        $stmt = $conn->prepare("SELECT username FROM user WHERE username = ?");
+        $stmt->bind_param("s", $name);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $nameErr = 'Username already taken';
+        }
+        $stmt->close();
     }
 
     if (empty($_POST['password'])) {
         $passwordErr = 'Password is required';
+    } else {
+        $password = test_input($_POST['password']);
     }
 
     // Validate email
@@ -51,18 +66,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 
-    // Check if there are any errors
-    if (empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($messageErr) && empty($enquiryErr)) {
-        // Send email
-        $to = "youremail@example.com";
-        $subject = "New contact form submission";
-        $message = "Name: " . $name . "\nEmail" . $email . "\nPhone: " . $phone . "\nEnquiry: " . $enquiry . "\nMessage: " . $message;
-        $headers = "From: " . $email;
-        mail($to, $subject, $message, $headers);
+    // Check if there are no errors
+   if (empty($nameErr) && empty($passwordErr) && empty($emailErr) && empty($phoneErr)) {
+    // Prepare and bind the SQL statement
+    $stmt = $conn->prepare("INSERT INTO user (username, password, email, phone_no) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $password, $email, $phone);
+
+    // Execute the statement
+    if ($stmt->execute()) {
         // Redirect to thank you page
-        header("Location: thank-you.php");
+        header("Location:../");
         exit();
+    } else {
+        echo "Error: " . $stmt->error;
     }
+
+    // Close the statement
+    $stmt->close();
+}
 }
 
 // Function to sanitize input data
@@ -75,27 +96,28 @@ function test_input($data) {
 
 ?>
 
-<div class="registerForm"></div>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="contactForm">
-    <div id="usernameInput">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($name); ?>">
-        <span class="error"><?php echo $nameErr; ?></span>
-    </div>
-    <div id="passwordInput">
-        <label for="password">Password:</label>
-        <input type="text" name="password" id="password" value="<?php echo htmlspecialchars($password); ?>">
-        <span class="error"><?php echo $passwordErr; ?></span>
-    </div>
-    <div id="emailInput">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>">
-        <span class="error"><?php echo $emailErr; ?></span>
-    </div>
-    <div id="phoneInput">
-        <label for="phone">Phone:</label>
-        <input type="tel" name="phone" id="phone" value="<?php echo htmlspecialchars($phone); ?>">
-        <span class="error"><?php echo $phoneErr; ?></span>
-    </div>
-    <button type="submit" name="submit" id="submit">Submit</button>
-</form>
+<div class="registerForm">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="contactForm">
+        <div id="usernameInput">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($name); ?>">
+            <span class="error"><?php echo $nameErr; ?></span>
+        </div>
+        <div id="passwordInput">
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" value="<?php echo htmlspecialchars($password); ?>">
+            <span class="error"><?php echo $passwordErr; ?></span>
+        </div>
+        <div id="emailInput">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>">
+            <span class="error"><?php echo $emailErr; ?></span>
+        </div>
+        <div id="phoneInput">
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone" value="<?php echo htmlspecialchars($phone); ?>">
+            <span class="error"><?php echo $phoneErr; ?></span>
+        </div>
+        <button type="submit" name="submit" id="submit">Submit</button>
+    </form>
+</div>
