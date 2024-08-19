@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 11, 2024 at 03:39 AM
+-- Generation Time: Aug 19, 2024 at 01:29 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -33,7 +33,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `phone_no` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `password`, `email`, `phone_no`, `birthday`) VALUES
-('yuhang', 'yh123', 'yuhang123@gmail.com', '018-954 3206', '2004-09-20'),
-('rongquan', 'boinkkboii', 'rongquan123@gmail.com', '012-639 9787', '2024-08-11');
+INSERT INTO `user` (`username`, `password`, `email`, `phone_no`) VALUES
+('yuhang', 'yh123', 'yuhang123@gmail.com', '018-954 3206'),
+('rongquan', 'boinkkboii', 'rongquan123@gmail.com', '012-639 9787');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
