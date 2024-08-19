@@ -30,7 +30,8 @@ h3 {
     z-index: -1;
 }
 
-.loginForm {
+.loginForm,
+.registerForm {
     background-color: white;
     width: 40%;
     position: absolute;
@@ -46,13 +47,23 @@ h3 {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], 
+input[type=password],
+input[type=email],
+input[type=tel] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+/* Error Display*/
+.error {
+    color: red;
+    position: absolute;
+    right: 2%;
 }
 
 button,

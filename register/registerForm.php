@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../style/mystyle2.css">
+
+
 <?php
 
 // Define variables and set to empty values
@@ -61,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $phone = test_input($_POST['phone']);
         //Check if phone number is valid
         if (!preg_match("/^\d{9,11}$/", $phone)) {
-            $phoneErr = "Invalid phone number format. It should contain only digits and be up to 11 digits long.";
+            $phoneErr = "Invalid phone number format. No '-'";
         }
     }
     
@@ -97,27 +100,30 @@ function test_input($data) {
 ?>
 
 <div class="registerForm">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="contactForm">
-        <div id="usernameInput">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($name); ?>">
-            <span class="error"><?php echo $nameErr; ?></span>
+    <h3>Register</h3>
+    <form class="formContent" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="registerForm">
+        <div class="container">
+            <div id="usernameInput">
+                <label for="username">Username:</label>
+                <span class="error"><?php echo $nameErr; ?></span>
+                <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($name); ?>">
+            </div>
+            <div id="passwordInput">
+                <label for="password">Password:</label>
+                <span class="error"><?php echo $passwordErr; ?></span>
+                <input type="text" name="password" id="password" value="<?php echo htmlspecialchars($password); ?>">
+            </div>
+            <div id="emailInput">
+                <label for="email">Email:</label>
+                <span class="error"><?php echo $emailErr; ?></span>
+                <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>">
+            </div>
+            <div id="phoneInput">
+                <label for="phone">Phone:</label>
+                <span class="error"><?php echo $phoneErr; ?></span>
+                <input type="tel" name="phone" id="phone" value="<?php echo htmlspecialchars($phone); ?>">
+            </div>
+            <button type="submit" name="submit" id="submit">Submit</button>
         </div>
-        <div id="passwordInput">
-            <label for="password">Password:</label>
-            <input type="text" name="password" id="password" value="<?php echo htmlspecialchars($password); ?>">
-            <span class="error"><?php echo $passwordErr; ?></span>
-        </div>
-        <div id="emailInput">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>">
-            <span class="error"><?php echo $emailErr; ?></span>
-        </div>
-        <div id="phoneInput">
-            <label for="phone">Phone:</label>
-            <input type="tel" name="phone" id="phone" value="<?php echo htmlspecialchars($phone); ?>">
-            <span class="error"><?php echo $phoneErr; ?></span>
-        </div>
-        <button type="submit" name="submit" id="submit">Submit</button>
     </form>
 </div>
