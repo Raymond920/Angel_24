@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 19, 2024 at 01:29 PM
+-- Generation Time: Aug 25, 2024 at 09:10 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `angel_24`
 --
+CREATE DATABASE IF NOT EXISTS `angel_24` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `angel_24`;
 
 -- --------------------------------------------------------
 
@@ -42,7 +44,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`username`, `password`, `email`, `phone_no`) VALUES
 ('yuhang', 'yh123', 'yuhang123@gmail.com', '018-954 3206'),
-('rongquan', 'boinkkboii', 'rongquan123@gmail.com', '012-639 9787');
+('rongquan', 'boinkkboii', 'rongquan123@gmail.com', '012-639 9787'),
+('john', 'asd', 'asd@a.com', '0181543206'),
+('yuhang123', 'asd', 'a@a.com', '111111111');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
