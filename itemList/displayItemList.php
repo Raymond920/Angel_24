@@ -42,11 +42,14 @@
                     // Display items
                     echo "<div class='itemListContainer'>";
                     while ($stmt->fetch()) {
+                        // Wrap the item card with an anchor tag
+                        echo "<a href='itemDetail.php?product_id=$pID' class='item-link'>";
                         echo "<div class='item-card' id='$pID'>";
                         echo "<img src='$pImage' alt='$pName'>";
-                        echo "<h2>$pName</h2>";
+                        echo "<h4>$pName</h4>";
                         echo "<p>RM $price</p>";
                         echo "</div>";
+                        echo "</a>";
                     }
                     echo "</div>";
 

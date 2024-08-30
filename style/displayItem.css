@@ -1,4 +1,4 @@
-.itemListContainer {
+.itemListContainer{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -15,22 +15,21 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 16px;
-    width: 200px;
+    width: 25vh;
     box-sizing: border-box;
     text-decoration: none; /* Remove underline from links */
     color: inherit; /* Inherit text color */
-    /* display: block; Make the entire card clickable */
 }
 
 .item-card img {
     width: auto;
-    height: 100px;
+    height: 18vh;
     border-radius: 4px;
 }
 
-.item-card > h2 {
+.item-card > h4 {
     position: initial;
-    font-size: 1.25rem;
+    font-size: 1.5vh;
     margin: 0;
     text-align: center;
 
@@ -54,4 +53,9 @@
 
 .item-card:hover {
     opacity: 0.5;
+}
+
+.item-link {
+    text-decoration: none;
+    color: black;
 }
