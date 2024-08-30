@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="displayItem.css">
 </head>
 <body>
-    <div class="product-container">
+    <!-- <div class="product-container">
         <div class="product-card">
             <img src="product1.jpg" alt="Product 1">
             <h2>Product 1</h2>
@@ -32,7 +32,8 @@
             <p>$15.00</p>
             <button>Add to Cart</button>
         </div>
-        <!-- Repeat .product-card for more products -->
-    </div>
+         Repeat .product-card for more products -->
+    <!-- </div> -->
+     <?php include'../itemList/displayItemList.php' ?>
 </body>
 </html>

@@ -9,9 +9,9 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="item-dropdown-content">
-                <a href="#">Item 1</a>
-                <a href="#">Item 2</a>
-                <a href="#">Item 3</a>
+                <a href="../itemList/displayItemList.php?product_type=Instant%20Food">Instant Food</a>
+                <a href="../itemList/displayItemList.php?product_type=Instant%20Noodle">Instant Noodle</a>
+                <a href="../itemList/displayItemList.php?product_type=Snacks">Snacks</a>
             </div>
         </div>
         <a href="/Angel_24/cart">

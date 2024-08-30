@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Item List</title>
+        <link rel="stylesheet" href="../style/mystyle1.css">
+        <link rel="stylesheet" href="../style/displayItem.css">
+    </head>
+    <body>
+        
+        <?php include("../includes/header.php"); ?>
+        <?php include("../includes/navigation.php"); ?>
+
+        <div>
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['product_type'])) {
+                    // Get the product type from the query string
+                    $product_type = $_GET['product_type'];
+
+                    // Ensure the variable is safe to use
+                    $product_type = htmlspecialchars($product_type);
+
+                    // Connect to the database
+                    $conn = mysqli_connect("localhost", "root", "", "angel_24");
+
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+
+                    // Prepare and bind the SQL statement
+                    $stmt = $conn->prepare("SELECT Product_ID, Product_Name, Product_Image, Price FROM products WHERE Product_Type = ?");
+                    $stmt->bind_param("s", $product_type);
+
+                    // Execute the statement
+                    $stmt->execute();
+
+                    // Bind result variables
+                    $stmt->bind_result($pID, $pName, $pImage, $price);
+
+                    // Display title
+                    echo "<h1>$product_type</h1>";
+
+                    // Display items
+                    echo "<div class='itemListContainer'>";
+                    while ($stmt->fetch()) {
+                        echo "<div class='item-card' id='$pID'>";
+                        echo "<img src='$pImage' alt='$pName'>";
+                        echo "<h2>$pName</h2>";
+                        echo "<p>RM $price</p>";
+                        echo "</div>";
+                    }
+                    echo "</div>";
+
+                    // Close connections
+                    $stmt->close();
+                    $conn->close();
+                }
+            ?>
+        </div>
+
+    </body>
+</html>
+
+
+
