@@ -10,7 +10,7 @@
         <?php include("../includes/navigation.php"); ?>
 
         <div class="contact-container">
-            <h1>Contact Us</h1>
+            <h3>Contact Us</h3>
             <p>If you have any questions or need further assistance, feel free to reach out to us through the form below.</p>
 
             <div class="contact-info">
@@ -32,7 +32,5 @@
                 <button type="submit" class="submit-btn">Submit</button>
             </form>
         </div>
-
-        <!-- <?php include("../includes/footer.php"); ?> -->
     </body>
 </html>

@@ -38,6 +38,11 @@
         } else {
             echo "<p>No product found with the given ID.</p>";
         }
+
+
+        $stmt -> close();
+        $conn -> close();
+
         
     }
 ?>

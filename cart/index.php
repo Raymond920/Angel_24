@@ -9,7 +9,7 @@
     <?php include("../includes/header.php"); ?>
     <?php include("../includes/navigation.php"); ?>
 
-    <h1>Cart</h1>
+    <h3>Cart</h3>
 
     <?php include("list_cart.php"); ?>
 
