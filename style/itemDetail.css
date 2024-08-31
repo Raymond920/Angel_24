@@ -1,0 +1,44 @@
+.image-detail-container {
+    display: flex;  /* Use flexbox for horizontal alignment */
+    gap: 20px;  /* Adjust gap between the image and details */
+    justify-content: center;  /* Center the content horizontally */
+    align-items: flex-start;  /* Align items to the top */
+    max-width: 1200px;
+    margin: auto;
+    flex-direction: row;  /* Ensures the image and details are side by side by default */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally within the container */
+    align-items: center; /* Centers the image vertically within the container */
+    width: 60%; /* Adjust width as needed */
+    border: 1px solid #ccc; /* Optional border for visualization */
+    box-sizing: border-box; /* Ensures padding and borders are included in width/height */
+}
+
+.image-container img {
+    max-width: 100%; /* Ensures the image doesn't overflow the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.detail-container {
+    display: grid;
+    width: 30%; /* Adjust width as needed */
+    grid-template-columns: 1fr; /* Ensures a single column for details */
+    grid-row-gap: 10px; /* Adds spacing between rows */
+    box-sizing: border-box; /* Ensures padding and borders are included in width/height */
+}
+
+/* Responsive adjustments */
+@media(max-width: 765px) {
+    .image-detail-container {
+        flex-direction: column;  /* Stack elements vertically on smaller screens */
+    }
+
+    .image-container,
+    .detail-container {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
