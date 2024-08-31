@@ -1,0 +1,51 @@
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-row {
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    place-items: center;
+    border-radius: 12px;
+    background-color: lightblue;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.product-row img {
+    width: 100px;
+    height: auto;
+}
+
+.name-price-container {
+    justify-self: start; /* Aligns the container to the left of its column */
+}
+
+.checkout-container {
+    margin-top: 20px; /* Add space above the button */
+    align-self: flex-end; /* Align button to the right of the container */
+    width: 95%; /* Full width of the container */
+    text-align: right; /* Align text (button) to the right */
+}
+
+.checkout-button {
+    display: inline-block; /* Make it behave like a block element but inline */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 15px 32px; /* Add some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Set font size */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.checkout-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

@@ -64,10 +64,10 @@
                     <img src="<?php echo htmlspecialchars($pImage); ?>" alt="<?php echo htmlspecialchars($pName); ?>">
                 </div>
                 <div class="detail-container">
-                    <h2><?php echo htmlspecialchars($pName); ?></h2>
+                    <h3><?php echo htmlspecialchars($pName); ?></h3>
                     <p>RM<?php echo htmlspecialchars($price); ?></p>
                     <p>Stock left: <?php echo htmlspecialchars($stock); ?></p>
-                    <h2>Description:</h2>
+                    <h3>Description:</h3>
                     <article><?php echo htmlspecialchars($description); ?></article>
 
 
