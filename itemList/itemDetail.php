@@ -71,12 +71,12 @@
                             <label for="quantity">Quantity:</label>
                             <div class="quantity-selector">
                                 <button type="button" class="quantity-btn" id="decrease">-</button>
-                                <input type="number" id="quantity" name="quantity" value="0" min="0" max="<?php echo htmlspecialchars($stock); ?>" step="1">
+                                <input type="number" id="quantity" name="quantity" value="0" min="0" max="<?php echo htmlspecialchars($stock); ?>">
                                 <button type="button" class="quantity-btn" id="increase">+</button>
                             </div>
                             <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($pID) ?>"> <!-- Hidden field for product ID -->
                             <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($current_url) ?>">
-                            <button type="submit" value="quantity">Add to Cart</button>
+                            <button type="submit" value="quantity" id="add-to-cart">Add to Cart</button>
                         </form>
                     <?php } else { ?>
                         <p class="out-of-stock">Out of Stock</p>
