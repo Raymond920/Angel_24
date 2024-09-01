@@ -1,0 +1,79 @@
+.shipping-form {
+    margin: 5% auto 5% auto;
+    width: 90%;
+}
+
+.shipping-form input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.payment-method-container {
+    margin-top: 20px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 20px;
+}
+
+.payment-method-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.payment-logo {
+    width: 60px; /* Adjust size as needed */
+}
+
+.payment-method-image-container:hover {
+    transform: scale(1.1);
+}
+
+.payment-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.payment-options input[type="radio"] {
+    position: absolute; /* Hide but still part of the DOM */
+    opacity: 0;
+}
+
+
+.payment-options input[type="radio"]:checked + .payment-method-image-container {
+    outline: 3px solid #4CAF50; /* Highlight the selected option */
+    outline-offset: 3px;
+}
+
+
+.payment-button {
+    display: block; /* Make it behave like a block element but inline */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 15px 32px; /* Add some padding */
+    text-align: right; /* Center text */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Set font size */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    float: right;
+    border: 0;
+}
+
+.payment-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+

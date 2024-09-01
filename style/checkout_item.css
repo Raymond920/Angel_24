@@ -1,0 +1,38 @@
+.checkout-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-row {
+    display: grid;
+    grid-template-columns: 20% 62% auto;
+    place-items: center;
+    border-radius: 12px;
+    background-color: lightblue;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.product-row img {
+    width: 100px;
+    height: auto;
+}
+
+.name-price-container {
+    justify-self: start; /* Aligns the container to the left of its column */
+}
+
+/* .payment-container, */
+.total-price-container {
+    align-self: flex-end; /* Align button to the right of the container */
+    width: 95%; /* Full width of the container */
+    text-align: right; /* Align text (button) to the right */
+}
+
+.price-container {
+    justify-self: start; /* Aligns the container to the left of its column */
+}
