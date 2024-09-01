@@ -37,7 +37,7 @@
             $stmt->bind_result($pID, $pName, $pImage, $price);
 
             // Display title
-            echo "<h3>Search Results for: " . ucfirst($search) . "</h3>";
+            echo "<h3>Search Results for: $search</h3>";
 
             // Display items
             echo "<div class='itemListContainer'>";
@@ -57,7 +57,7 @@
 
             // If no results were found, display a message
             if (!$resultsFound) {
-                echo "<p>No results found for your search.</p>";
+                echo "<h4>No results found for your search.</h4>";
             }
 
             // Close connections
