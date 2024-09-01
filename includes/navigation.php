@@ -20,7 +20,7 @@
         <i class="fa fa-phone"></i> Contact</a>
     </div>
     <div class="searchbar">
-        <form> 
+        <form method="get" action="../search/search_results.php"> 
             <input type="text" placeholder="Search..." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
