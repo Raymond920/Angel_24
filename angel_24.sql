@@ -126,3 +126,14 @@ INSERT INTO `user` (`username`, `password`, `email`, `phone_no`) VALUES
 ('rongquan', 'boinkkboii', 'rongquan123@gmail.com', '012-639 9787'),
 ('john', 'asd', 'asd@a.com', '0181543206'),
 ('yuhang123', 'asd', 'a@a.com', '111111111');
+
+--Table structue for table `contact_message`
+--
+
+CREATE TABLE contact_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
