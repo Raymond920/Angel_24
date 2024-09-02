@@ -41,7 +41,7 @@
                         echo '<label for="' . $quantityInputId . '">Quantity:</label>';
                         echo '<div class="quantity-selector">';
                             echo '<button type="submit" name="decrease" value="' . htmlspecialchars($pID) . '" class="quantity-btn">-</button>';
-                            echo '<input type="number" id="' . $quantityInputId . '" name="quantity" value="'. htmlspecialchars($quantity) .'" min="0" max="' . htmlspecialchars($stock) . '">';
+                            echo '<input type="text" id="' . $quantityInputId . '" name="quantity" value="'. htmlspecialchars($quantity) .'" min="0" max="' . htmlspecialchars($stock) . '">';
                             echo '<button type="submit" name="increase" value="' . htmlspecialchars($pID) . '" class="quantity-btn">+</button>';
                         echo '</div>';
                         echo '<input type="hidden" name="product_id" value="'.htmlspecialchars($pID).'">';

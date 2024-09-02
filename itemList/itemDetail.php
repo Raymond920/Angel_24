@@ -54,7 +54,8 @@
         <link rel="stylesheet" href="../style/mystyle1.css">
         <link rel="stylesheet" href="../style/itemDetail.css">
         <link rel="stylesheet" href="../style/quantitySelector.css">
-    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
     <body>
         <?php include("../includes/header.php"); ?>
         <?php include("../includes/navigation.php"); ?>
@@ -76,7 +77,7 @@
                             <label for="quantity">Quantity:</label>
                             <div class="quantity-selector">
                                 <button type="button" class="quantity-btn" id="decrease">-</button>
-                                <input type="number" id="quantity" name="quantity" value="0" min="0" max="<?php echo htmlspecialchars($stock); ?>">
+                                <input type="text" id="quantity" name="quantity" value="0" min="0" max="<?php echo htmlspecialchars($stock); ?>">
                                 <button type="button" class="quantity-btn" id="increase">+</button>
                             </div>
                             <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($pID) ?>"> <!-- Hidden field for product ID -->
