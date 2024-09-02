@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 30, 2024 at 02:02 AM
+-- Generation Time: Sep 02, 2024 at 03:23 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -26,18 +26,34 @@ USE `angel_24`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_messages`
+--
+
+DROP TABLE IF EXISTS `contact_messages`;
+CREATE TABLE IF NOT EXISTS `contact_messages` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `message` text COLLATE utf8mb4_general_ci NOT NULL,
+  `submitted_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `Product_ID` int NOT NULL AUTO_INCREMENT,
-  `Product_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Product_Image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Description` text COLLATE utf8mb4_general_ci,
+  `Product_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Product_Image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `Price` decimal(10,2) DEFAULT NULL,
   `Stock` int DEFAULT NULL,
-  `Product_Type` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Product_Type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`Product_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -110,9 +126,9 @@ INSERT INTO `products` (`Product_ID`, `Product_Name`, `Product_Image`, `Descript
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `username` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `username` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `phone_no` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -126,14 +142,8 @@ INSERT INTO `user` (`username`, `password`, `email`, `phone_no`) VALUES
 ('rongquan', 'boinkkboii', 'rongquan123@gmail.com', '012-639 9787'),
 ('john', 'asd', 'asd@a.com', '0181543206'),
 ('yuhang123', 'asd', 'a@a.com', '111111111');
+COMMIT;
 
---Table structue for table `contact_message`
---
-
-CREATE TABLE contact_messages (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    message TEXT NOT NULL,
-    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

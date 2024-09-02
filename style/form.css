@@ -32,6 +32,14 @@
     transition: transform 0.3s ease;
 }
 
+.shipping-form-grid {
+    gap: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: fit-content;
+}
+
 .payment-logo {
     width: 60px; /* Adjust size as needed */
 }
@@ -77,3 +85,6 @@
     background-color: #45a049; /* Darker green on hover */
 }
 
+h4 {
+    width: 60%;
+}

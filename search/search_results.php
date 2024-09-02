@@ -27,8 +27,8 @@
 
             // Prepare the SQL statement with wildcards for a search
             $search_param = "%" . $search . "%";
-            $stmt = $conn->prepare("SELECT Product_ID, Product_Name, Product_Image, Price FROM products WHERE Product_Name LIKE ?");
-            $stmt->bind_param("s", $search_param);
+            $stmt = $conn->prepare("SELECT Product_ID, Product_Name, Product_Image, Price FROM products WHERE Product_Name LIKE ? OR Product_type LIKE ?");
+            $stmt->bind_param("ss", $search_param, $search_param);
 
             // Execute the statement
             $stmt->execute();

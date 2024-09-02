@@ -1,20 +1,24 @@
 <link rel="stylesheet" href="../style/form.css">
 
 <div class="shipping-form-container">
-    <form class="shipping-form" action="paymentMethod.php" method="post" onsubmit="return validatePaymentMethod();">
-        <input type="text" placeholder="First Name" name="first_name" class="two-column" required>
-        <input type="text" placeholder="Last Name" name="last_name" class="two-column" required><br>
+    <form class="shipping-form" action="paymentSuccessful.php" method="post" onsubmit="return validatePaymentMethod();">
+        <div class="shipping-form-grid">
+            <input type="text" placeholder="First Name" name="first_name" class="two-column" required>
+            <input type="text" placeholder="Last Name" name="last_name" class="two-column" required>
+        </div>
         <input type="text" placeholder="Street Address" name="street" required><br>
         <input type="text" placeholder="Apt / Suite / Unit (Optional)" name="unit"><br>
-        <input type="text" placeholder="City" name="city" class="two-column" required>
-        <input type="text" placeholder="State" name="state" class="two-column" required><br>
+        <div class="shipping-form-grid">
+            <input type="text" placeholder="City" name="city" class="two-column" required>
+            <input type="text" placeholder="State" name="state" class="two-column" required>
+        </div>
         <input type="text" placeholder="Postcode" name="postcode" required>
         <?php include("list_checkout_item.php"); ?>
 
         <!-- Add payment method selection -->
         <div class='payment-method-container'>
-            <h4>Select Payment Method:</h4>
             <div class='payment-options'>
+            <h4>Select Payment Method:</h4>
                 <label>
                     <input type='radio' name='payment_method' value='tng' required>
                     <div class="payment-method-image-container">
@@ -41,6 +45,7 @@
                 </label>
             </div>
         </div>
+        <br>
         <button type="submit" class="payment-button">Proceed to Payment</button>
     </form>
 </div>

@@ -60,7 +60,7 @@
     <div class="thank-you-container">
         <h1>Thank You for Your Message!</h1>
         <p>We appreciate you contacting us. One of our customer service colleagues will get back in touch with you soon! Have a great day!</p>
-        <a href="index.php" class="return-link">Return to Home</a>
+        <a href="../home/index.php" class="return-link">Return to Home</a>
     </div>
 
     <?php include("../includes/footer.php"); ?>
