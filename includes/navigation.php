@@ -1,8 +1,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="../style/navigationStyle.css">
-
+<link rel="stylesheet" href="../style/profile.css">
 <div class="top_nav">
     <div class="nav-left">
+    <div class="profile-dropdown">
+        <div class="profile-btn"></div>
+        <div class="profile-menu">
+            <a href="#edit-profile"><i class="fas fa-user-edit"></i>Edit Profile</a>
+            <a href="#settings"><i class="fas fa-cog"></i>Settings</a>
+            <a href="#logout"><i class="fas fa-sign-out-alt"></i>Log out</a>
+        </div>
+    </div>
         <a href="/Angel_24/home">Home</a>
         <div class="item-dropdown">
             <button class="dropbtn">Item
