@@ -9,7 +9,7 @@
         <div class="profile-menu">
             <a href="#edit-profile"><i class="fas fa-user-edit"></i>Edit Profile</a>
             <a href="#settings"><i class="fas fa-cog"></i>Settings</a>
-            <a href="#logout"><i class="fas fa-sign-out-alt"></i>Log out</a>
+            <a href="../includes/logout.php"><i class="fas fa-sign-out-alt"></i>Log out</a>
         </div>
     </div>
         <a href="/Angel_24/home">Home</a>

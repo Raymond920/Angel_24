@@ -1,5 +1,11 @@
 <?php 
     session_start();
+    //Check if the user is not logged in
+    if(!isset($_SESSION['username'])) {
+        header('Location: ../index.php');
+        exit();
+    }
+    
     $previous_url = isset($_SERVER['HTTP_REFERER']) ? urlencode($_SERVER['HTTP_REFERER']) : '';
 
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['product_id'])) {
