@@ -1,6 +1,7 @@
 <?php 
     session_start();
-    $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    $previous_url = isset($_SERVER['HTTP_REFERER']) ? urlencode($_SERVER['HTTP_REFERER']) : '';
+
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['product_id'])) {
         // Get the product type from the query string
         $pID = $_GET['product_id'];
@@ -14,13 +15,6 @@
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         } else 
-
-        // $sql = "UPDATE `products` SET `Stock` = '0' WHERE `products`.`Product_ID` = 36";
-        // if ($conn->query($sql) === TRUE) {
-        //     echo "Record updated successfully";
-        // } else {
-        //     echo "Error updating record: " . $conn->error;
-        // }
 
         // Prepare and bind the SQL statement
         $stmt = $conn->prepare("SELECT Product_Name, Product_Image, Description, Price, Stock FROM products WHERE Product_ID = ?");
@@ -59,6 +53,7 @@
     <body>
         <?php include("../includes/header.php"); ?>
         <?php include("../includes/navigation.php"); ?>
+        <button onclick="history.back()"><i class="fa fa-arrow-left"></i></button>
         <div class="item-description-container">
             <div class="image-detail-container">
                 <div class="image-container">
@@ -81,7 +76,7 @@
                                 <button type="button" class="quantity-btn" id="increase">+</button>
                             </div>
                             <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($pID) ?>"> <!-- Hidden field for product ID -->
-                            <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($current_url) ?>">
+                            <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($previous_url); ?>">
                             <button type="submit" value="quantity" id="add-to-cart">Add to Cart</button>
                         </form>
                     <?php } else { ?>

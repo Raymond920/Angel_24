@@ -4,7 +4,7 @@
 
     // Connect to the database
     $conn = mysqli_connect("localhost", "root", "", "angel_24");
-    $no_quantity = false;
+    $no_quantity = true;
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -16,7 +16,7 @@
         // Iterate over the cart items
         foreach ($_SESSION['cart'] as $pID => $quantity) {
             if ($quantity > 0) {
-                $no_quantity = true;
+                $no_quantity = false;
                 // Fetch item details from the database
                 $stmt = $conn->prepare("SELECT Product_Name, Product_Image, Price, Stock FROM products WHERE Product_ID = ?");
                 $stmt->bind_param("i", $pID);
@@ -50,11 +50,13 @@
                 echo "</div>";
             }
         }
-        echo '<div class="checkout-container">';
-            echo '<a href="checkout.php" class="checkout-button">Proceed to Checkout</a>';
-        echo '</div>';
+        if (!$no_quantity){
+            echo '<div class="checkout-container">';
+                echo '<a href="checkout.php" class="checkout-button">Proceed to Checkout</a>';
+            echo '</div>';
+        }
     }
-    if (!$no_quantity) {
+    if ($no_quantity) {
         echo "<p>Your cart is empty.</p>";
     }
 
