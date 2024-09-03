@@ -10,7 +10,7 @@
     border: 3px solid transparent;
     transition: border-color 0.3s ease;
     cursor: pointer;
-    background-image: url('../images/profile/profile-pic.jpg');
+    background-image: url('../images/profile/profile-pic.png');
     background-size: cover;
     background-position: center;
 }

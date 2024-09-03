@@ -1,0 +1,33 @@
+.present-profile {
+    float:left;
+    margin: 10px 0px 0px 30px;
+    padding: 20px;
+    width: 25%;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+.edit-form {
+    float: right;
+    margin: 10px 65px 0px 10px;
+    padding: 20px;
+    width: 800px;
+    height: 500px;
+    background-color: antiquewhite;
+    text-align: center;
+    align-content: center;
+}
+
+.present-profile img {
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile_pic {
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

@@ -142,8 +142,23 @@ INSERT INTO `user` (`username`, `password`, `email`, `phone_no`) VALUES
 ('rongquan', 'boinkkboii', 'rongquan123@gmail.com', '012-639 9787'),
 ('john', 'asd', 'asd@a.com', '0181543206'),
 ('yuhang123', 'asd', 'a@a.com', '111111111');
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+DROP TABLE IF EXISTS `profile_pic`;
+CREATE TABLE IF NOT EXISTS `profile_pic` (
+  `username` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image_data` LONGBLOB  DEFAULT NULL,
+  `image_type` VARCHAR(50) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `profile_pic` (`username`, `image_data`, `image_type`) VALUES
+('yuhang', null, null),
+('rongquan', null, null),
+('john', null, null),
+('yuhang123', null, null);
+
+COMMIT;

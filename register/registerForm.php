@@ -75,9 +75,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare("INSERT INTO user (username, password, email, phone_no) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $name, $password, $email, $phone);
 
+    $stmt1 = $conn->prepare("INSERT INTO profile_pic (username) VALUES (?)");
+    $stmt1->bind_param("s", $name);
+
     // Execute the statement
-    if ($stmt->execute()) {
-        // Redirect to thank you page
+    if ($stmt->execute() && $stmt1->execute()) {
+        // Redirect to home page
         header("Location:../");
         exit();
     } else {
@@ -86,6 +89,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Close the statement
     $stmt->close();
+    $stmt1->close();
 }
 }
 

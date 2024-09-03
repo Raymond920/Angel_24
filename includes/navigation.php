@@ -7,8 +7,12 @@
     <div class="profile-dropdown">
         <div class="profile-btn"></div>
         <div class="profile-menu">
+<<<<<<< Updated upstream
             <a href="#edit-profile"><i class="fas fa-user-edit"></i>Edit Profile</a>
             <a href="#settings"><i class="fas fa-cog"></i>Settings</a>
+=======
+            <a href="../profile/"><i class="fas fa-user-edit"></i>Edit Profile</a>
+>>>>>>> Stashed changes
             <a href="../includes/logout.php"><i class="fas fa-sign-out-alt"></i>Log out</a>
         </div>
     </div>
