@@ -1,23 +1,19 @@
 <?php
-    session_start(); // Start the session
+session_start(); // Start the session
 
-    // Check if the form was submitted and if 'product_id' is set
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
-        $productId = (int) $_POST['product_id'];
-        $currentQuantity = (int) $_SESSION['cart'][$productId];
+// Check if the form was submitted and if 'product_id' and 'quantity' are set
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id']) && isset($_POST['quantity'])) {
+    $productId = (int) $_POST['product_id'];
+    $newQuantity = (int) $_POST['quantity']; // Get the new quantity input by the user
 
-        // Increase quantity
-        if (isset($_POST['increase'])) {
-            $_SESSION['cart'][$productId] = $currentQuantity + 1;
-        }
-        
-        // Decrease quantity
-        if (isset($_POST['decrease'])) {
-            $_SESSION['cart'][$productId] = max($currentQuantity - 1, 0);
-        }
-    }
+    // Ensure quantity is non-negative
+    $newQuantity = max($newQuantity, 0);
 
-    // Redirect back to the previous page
-    header('Location: ' . urldecode($_POST['return_url']));
-    exit();
+    // Update the cart with the new quantity
+    $_SESSION['cart'][$productId] = $newQuantity;
+}
+
+// Redirect back to the previous page
+header('Location: ' . urldecode($_POST['return_url']));
+exit();
 ?>
