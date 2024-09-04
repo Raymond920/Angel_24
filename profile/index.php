@@ -1,3 +1,9 @@
+<?php 
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +17,6 @@
         <div class="present-profile">
             <img src="../includes/profile_pic.php" alt="Image from Database"><br>
             <?php
-            session_start();
             $username = $_SESSION['username'];
             $password = $_SESSION['password'];
             $email = $_SESSION['email'];
