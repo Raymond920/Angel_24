@@ -21,6 +21,11 @@ $stmt->execute();
 $stmt->bind_result($imageData, $imageType);
 $stmt->fetch();
 
+if($imageData === NULL){
+    $imageData = file_get_contents("../images/profile/profile-pic.png");
+    $imageType = mime_content_type("../images/profile/profile-pic.png");
+}
+
 if($imageData){
     header("Content-type: " . $imageType);
     echo $imageData;
