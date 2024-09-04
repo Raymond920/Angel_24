@@ -45,8 +45,10 @@ if(!isset($_SESSION['username'])) {
                     // Bind result variables
                     $stmt->bind_result($pID, $pName, $pImage, $price);
 
+                    echo "<article class='display-item-page'>";
+                    echo "<section class='bg-frame bg-blue'>";
                     // Display title
-                    echo "<h1>$product_type</h1>";
+                    echo "<h1><div class='inner'>$product_type</div></h1>";
 
                     // Display items
                     echo "<div class='itemListContainer'>";
@@ -61,6 +63,8 @@ if(!isset($_SESSION['username'])) {
                         echo "</a>";
                     }
                     echo "</div>";
+                    echo "</section>";
+                    echo "</article>";
 
                     // Close connections
                     $stmt->close();

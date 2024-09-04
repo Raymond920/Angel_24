@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 html, body {
     margin: 0;
     padding: 0;
@@ -5,10 +8,39 @@ html, body {
 
 body {
     color: rgb(13, 13, 13);
-    font-family: Verdana, sans-serif;
+    font-family: "M PLUS 1", sans-serif;
     font-size: 15px;
     line-height: 1.5;
     overflow-x: hidden;
+    background-image: url(../images/background.png);
+}
+
+.inner {
+    display: block;
+    margin: 0 auto;
+    margin-top: 0;
+    max-width: 700px;
+    text-align: center;
+    font-size: 3.5 rem;
+    width: 92vw;
+    background: url(../images/title_bg.png) no-repeat center center;
+    padding: 15px 0;
+    font-family: Kanit, sans-serif;
+    font-style: italic;
+}
+
+.display-item-page .bg-frame {
+    position: relative;
+    display: block;
+    z-index: 3;
+    margin-top: 0;
+    background-image: url(../images/bg_frame_lt.png), url(../images/bg_frame_rt.png), url(../images/bg_frame_lb.png), url(../images/bg_frame_rb.png);
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: left 15px top 15px, right 15px top 15px, left 15px bottom 15px, right 15px bottom 15px;
+}
+
+.display-item-page .bg-blue {
+    background: rgba(0, 215, 251, 0.5);
 }
 
 #icon {
@@ -20,8 +52,9 @@ body {
 h1 {
     position: relative;
     font-size: 3.5rem;
-    left: 20px;
-    width: 80%;
+    margin-top: 0;
+    /* left: 20px;
+    width: 80%; */
 }
 
 h2 {

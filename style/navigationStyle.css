@@ -16,6 +16,7 @@ body {
     padding: 0 20px;  /* Add padding for spacing */
     position: relative; /* To ensure that expanded menu is positioned correctly */
     height: 80px;
+    z-index: 20;
 }
 
 .top_nav .nav-left {
