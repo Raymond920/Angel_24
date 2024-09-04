@@ -31,16 +31,16 @@
         <div class="edit-form">
             <form action="profile_edit_form.php" enctype="multipart/form-data" class="profile_edit_form" method="POST">
                 <label for="name">New Username:</label><br>
-                <input type="text" id="name" class="name" name="name"><br><br>
+                <input type="text" id="name" class="name" name="name" placeholder="<?php echo htmlspecialchars($username);?>"><br><br>
 
                 <label for="password">New Password:</label><br>
-                <input type="text" id="password" name="password"><br><br>
+                <input type="text" id="password" name="password" placeholder="<?php echo htmlspecialchars($password);?>"><br><br>
 
                 <label for="email">New Email:</label><br>
-                <input type="email" id="email" name="email"><br><br>
+                <input type="email" id="email" name="email" placeholder="<?php echo htmlspecialchars($email);?>"><br><br>
 
                 <label for="phoneno">New Phone number:</label><br>
-                <input type="tel" id="phoneno" name="phoneno"><br><br>
+                <input type="tel" id="phoneno" name="phoneno" placeholder="<?php echo htmlspecialchars($phoneno);?>"><br><br>
 
                 <label for="image">New profile picture:</label><br>
                 <input type="file" name="image" id="image" accept="image/*"><br><br><br>
