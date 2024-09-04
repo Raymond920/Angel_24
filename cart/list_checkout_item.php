@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="../style/checkout_item.css">
 <?php 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // Connect to the database
     $conn = mysqli_connect("localhost", "root", "", "angel_24");

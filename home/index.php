@@ -12,6 +12,7 @@ if(!isset($_SESSION['username'])) {
     <head>
         <title>Angel 24</title>
         <link rel="stylesheet" href="../style/mystyle1.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <?php include("../includes/header.php"); ?>
