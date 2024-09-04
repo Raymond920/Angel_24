@@ -10,8 +10,7 @@
         <div class="profile-dropdown">
             <div class="profile-btn" onmouseover="closeExpandMenu()"></div>
             <div class="profile-menu">
-                <div><a href="#edit-profile"><i class="fas fa-user-edit"></i>Edit Profile</a></div>
-                <div><a href="#settings"><i class="fas fa-cog"></i>Settings</a></div>
+                <div><a href="../profile"><i class="fas fa-user-edit"></i>Edit Profile</a></div>
                 <div><a href="../includes/logout.php"><i class="fas fa-sign-out-alt"></i>Log out</a></div>
             </div>
 
