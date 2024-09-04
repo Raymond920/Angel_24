@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssss", $username, $password, $email, $phoneno, $db_username);
 
     // Upload profile picture
-    $stmt1 = $conn->prepare("UPDATE profile_pic SET image_data = ?, image_type = ? WHERE username = ?");
-    $stmt1->bind_param("sss", $imgData, $imgType, $db_username);
+    $stmt1 = $conn->prepare("UPDATE profile_pic SET username=?, image_data = ?, image_type = ? WHERE username = ?");
+    $stmt1->bind_param("ssss", $username, $imgData, $imgType, $db_username);
 
     // Redirect to the edit profile page after successfully edit profile
     if ($stmt->execute() && $stmt1->execute()){
