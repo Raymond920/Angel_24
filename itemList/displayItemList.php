@@ -49,8 +49,7 @@ if(!isset($_SESSION['username'])) {
                     echo "<section class='bg-frame'>";
                     // Display title
                     echo "<h1 class='title'><div class='inner'>$product_type</div></h1>";
-
-                    // Display items
+                    
                     echo "<div class='itemListContainer'>";
                     while ($stmt->fetch()) {
                         // Wrap the item card with an anchor tag

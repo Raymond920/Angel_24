@@ -17,6 +17,20 @@ if(!isset($_SESSION['username'])) {
     <body>
         <?php include("../includes/header.php"); ?>
         <?php include("../includes/navigation.php"); ?>
+        <div class="top-section-container">
+            <div class="welcome-container">
+            <video id="wallpaper" autoplay muted loop poster="wallpaper.jpg">
+                <source src="../home_background.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="dot-background"></div>
+            <h1>Welcome To Angel_24, <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <?php include('displayAll.php'); ?>
+        </div>
 
         <!-- Slide show for popular item -->
         <!-- <div class="popular_product">

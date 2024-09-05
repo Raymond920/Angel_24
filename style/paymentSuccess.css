@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-image: url(../images/background.png);
     margin: 0;
     padding: 0;
 }
@@ -9,8 +9,8 @@ body {
 /* Thank You Container */
 .thank-you-container {
     text-align: center;
-    background-image: url(../images/background.png);
     margin: 50px auto;
+    background-color: #f4f4f9;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);

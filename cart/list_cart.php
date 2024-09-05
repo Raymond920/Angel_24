@@ -58,7 +58,10 @@
         }
     }
     if ($no_quantity) {
+        echo "<div class='cart-empty-container'>";
         echo "<p>Your cart is empty.</p>";
+        echo "<img src='../images/sad_momoi.png'>";
+        echo "</div>";
     }
 
     // Close the database connection
