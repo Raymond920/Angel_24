@@ -77,7 +77,8 @@ input[type=tel] {
 }
 
 button,
-#register {
+#register,
+.return-btn {
     font-family: Verdana, sans-serif;
     font-size: 15px;
     text-decoration: none;
@@ -92,15 +93,28 @@ button,
     text-align: center;
     margin: 0;
     box-sizing: border-box; /* Ensure padding and border are included in width/height */
+    height: 47px;
 }
 
-#register {
+#register,
+.return-btn {
     margin-top: 10px;
     width: 100%; /* Ensure width is consistent with the button */
 }
 
+#remember-me-checkbox {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
 button:hover,
-#register:hover {
+#register:hover,
+.return-btn:hover {
+    background-color: #0b7dda;
     opacity: 0.8;
 }
 
@@ -110,4 +124,8 @@ button:hover,
 
 #forgotPassword {
     text-align: right;
+}
+
+.return-btn:hover {
+      /* Hover effect */
 }

@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../style/mystyle2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <?php
@@ -127,7 +128,9 @@ function test_input($data) {
                 <span class="error"><?php echo $phoneErr; ?></span>
                 <input type="tel" name="phone" id="phone" value="<?php echo htmlspecialchars($phone); ?>">
             </div>
+            <br>
             <button type="submit" name="submit" id="submit">Submit</button>
+            <a href="../index.php" class="return-btn"><i class="fa fa-arrow-left"></i> Back</a>
         </div>
     </form>
 </div>

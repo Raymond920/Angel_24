@@ -1,6 +1,6 @@
 <?php 
 session_start();
-//Check if the user is not logged in
+// Check if the user is not logged in
 if(!isset($_SESSION['username'])) {
     header('Location: ../index.php');
     exit();
@@ -18,7 +18,6 @@ if(!isset($_SESSION['username'])) {
         <?php include("../includes/header.php"); ?>
         <?php include("../includes/navigation.php"); ?>
 
-        <!-- Slide show for popular item -->
         <div class="popular_product">
             <h3>Popular product</h3>
             <div class="slideshow-container">

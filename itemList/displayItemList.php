@@ -46,7 +46,7 @@ if(!isset($_SESSION['username'])) {
                     $stmt->bind_result($pID, $pName, $pImage, $price);
 
                     echo "<article class='display-item-page'>";
-                    echo "<section class='bg-frame bg-blue'>";
+                    echo "<section class='bg-frame'>";
                     // Display title
                     echo "<h1><div class='inner'>$product_type</div></h1>";
 
@@ -63,6 +63,7 @@ if(!isset($_SESSION['username'])) {
                         echo "</a>";
                     }
                     echo "</div>";
+                    echo "<br><br>";
                     echo "</section>";
                     echo "</article>";
 

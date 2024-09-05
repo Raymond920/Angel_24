@@ -13,7 +13,9 @@
             <input type="text" name="username" placeholder="Enter Username" required><br>
             <label for="password">Password: </label>
             <input type="password" name="password" placeholder="Enter Password" required><br>
-            <p id="forgotPassword">Forgot <a href="#forgotPassword">Password?</a></p>
+            <label id="remember-me-checkbox">
+                <input type="checkbox" name="remember" id="remember"> Remember Me
+            </label>
             <button type="submit">Login</button>
             <a id="register" href="../Angel_24/register/register.php">Register</a>
         </div>

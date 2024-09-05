@@ -34,13 +34,10 @@ body {
     display: block;
     z-index: 3;
     margin-top: 0;
+    background-color: rgba(0, 215, 251, 0.5);
     background-image: url(../images/bg_frame_lt.png), url(../images/bg_frame_rt.png), url(../images/bg_frame_lb.png), url(../images/bg_frame_rb.png);
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: left 15px top 15px, right 15px top 15px, left 15px bottom 15px, right 15px bottom 15px;
-}
-
-.display-item-page .bg-blue {
-    background: rgba(0, 215, 251, 0.5);
 }
 
 #icon {
