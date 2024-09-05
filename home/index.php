@@ -18,6 +18,7 @@ if(!isset($_SESSION['username'])) {
         <?php include("../includes/header.php"); ?>
         <?php include("../includes/navigation.php"); ?>
 
+        <!-- Slide show for popular item -->
         <div class="popular_product">
             <h3>Popular product</h3>
             <div class="slideshow-container">
