@@ -16,7 +16,7 @@
     // Bind result variables
     $stmt->bind_result($pID, $pName, $pImage, $price);
 
-    echo "<article class='display-item-page'>";
+    echo "<article class='display-item-page fade-in'>";
     echo "<section class='bg-frame'>";
     // Display title
     echo "<h1 class='title'><div class='inner'>Discover</div></h1>";
