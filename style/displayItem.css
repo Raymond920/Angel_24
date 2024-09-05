@@ -4,7 +4,17 @@
     gap: 20px;
     justify-content: center;
     max-width: 1200px;
-    margin: auto;
+    background-color: white;
+    padding-top: 30px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding-bottom: 60px;
+}
+
+@media screen and (max-width: 1250px) {
+    .itemListContainer {
+        margin: 0 20px;
+    }
 }
 
 .item-card {
@@ -20,12 +30,13 @@
     text-decoration: none; /* Remove underline from links */
     color: inherit; /* Inherit text color */
     /* Animation */
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.1s ease-in-out;
     transform-style: preserve-3d;
     perspective: 1000px;
 }
 
 .item-card:hover {
+    /* opacity: 0.5; */
     transform: translateZ(30px) scale(1.1);
 }
 
@@ -59,9 +70,6 @@
     font-size: 1rem;
 }
 
-.item-card:hover {
-    opacity: 0.5;
-}
 
 .item-link {
     text-decoration: none;

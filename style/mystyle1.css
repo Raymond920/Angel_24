@@ -15,18 +15,28 @@ body {
     background-image: url(../images/background.png);
 }
 
+#header {
+    background-color: white;
+}
+
 .inner {
     display: block;
     margin: 0 auto;
     margin-top: 0;
     max-width: 700px;
     text-align: center;
-    font-size: 3.5 rem;
     width: 92vw;
-    background: url(../images/title_bg.png) no-repeat center center;
+    background: url(../images/title_bg.png) no-repeat center center / 100% auto;
     padding: 15px 0;
     font-family: Kanit, sans-serif;
     font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .inner {
+        font-size: 7.7vw;
+        padding: 2% 0;
+    }
 }
 
 .display-item-page .bg-frame {
@@ -35,9 +45,26 @@ body {
     z-index: 3;
     margin-top: 0;
     background-color: rgba(0, 215, 251, 0.5);
-    background-image: url(../images/bg_frame_lt.png), url(../images/bg_frame_rt.png), url(../images/bg_frame_lb.png), url(../images/bg_frame_rb.png);
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-position: left 15px top 15px, right 15px top 15px, left 15px bottom 15px, right 15px bottom 15px;
+    color: #128afa;
+    font-size: 100%;
+}
+
+.bg-frame .title {
+    position: relative;
+    font-size: 3.5rem;
+    margin-top: 0;
+}
+
+@media screen and (min-width: 769px) {
+    .display-item-page .bg-frame {
+        background-image: url(../images/bg_frame_lt.png), url(../images/bg_frame_rt.png), url(../images/bg_frame_lb.png), url(../images/bg_frame_rb.png);
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+        background-position: left 15px top 15px, right 15px top 15px, left 15px bottom 15px, right 15px bottom 15px;
+    }
+
+    .title {
+        margin: 2vw auto 10vw;
+    }
 }
 
 #icon {
@@ -46,19 +73,19 @@ body {
     left: 20px;
 }
 
-h1 {
+/* h1 {
     position: relative;
     font-size: 3.5rem;
     margin-top: 0;
     /* left: 20px;
     width: 80%; */
-}
+/* } */ 
 
 h2 {
     position: relative;
     font-size: 2.5rem;
-    left: 20px;
-    width: 80%;
+    /* left: 20px;
+    width: 80%; */
 }
 
 h3 {
