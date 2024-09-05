@@ -12,6 +12,7 @@
     cursor: pointer;
     background-size: cover;
     background-position: center;
+    margin-right: 10px;
 }
 
 .profile-btn:hover {
