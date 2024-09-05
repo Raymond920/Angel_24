@@ -19,7 +19,7 @@ if(!isset($_SESSION['username'])) {
         <?php include("../includes/navigation.php"); ?>
 
         <!-- Slide show for popular item -->
-        <div class="popular_product">
+        <!-- <div class="popular_product">
             <h3>Popular product</h3>
             <div class="slideshow-container">
                 <div class="product">
@@ -77,6 +77,6 @@ if(!isset($_SESSION['username'])) {
                 products[productIndex-1].style.display = "block";   // display the chosen image
                 dots[productIndex-1].className += " active";    // add new class 'active' to chosen dot
             }
-        </script>
+        </script> -->
     </body>
 </html>
