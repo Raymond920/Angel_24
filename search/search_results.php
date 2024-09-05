@@ -44,9 +44,10 @@ if(!isset($_SESSION['username'])) {
 
             // Bind result variables
             $stmt->bind_result($pID, $pName, $pImage, $price);
-
+            echo "<article class='display-item-page'>";
+            echo "<section class='bg-frame'>";
             // Display title
-            echo "<h3>Search Results for: $search</h3>";
+            echo "<h3><div class='inner'>Search Results for: $search</div></h3>";
 
             // Display items
             echo "<div class='itemListContainer'>";
@@ -68,7 +69,9 @@ if(!isset($_SESSION['username'])) {
             if (!$resultsFound) {
                 echo "<h4>No results found for your search.</h4>";
             }
-
+            echo "<br><br>";
+            echo "</section>";
+            echo "</article>";
             // Close connections
             $stmt->close();
             $conn->close();

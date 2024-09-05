@@ -4,11 +4,40 @@
 <link rel="stylesheet" href="../style/profile.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<?php
+// Fetch the profile picture from the database
+$conn = new mysqli("localhost", "root", "", "angel_24");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$logged_in_user = $_SESSION['username'];
+
+$stmt = $conn->prepare("SELECT image_data, image_type FROM profile_pic WHERE username = ?");
+$stmt->bind_param("s", $logged_in_user);
+$stmt->execute();
+$stmt->bind_result($imgData, $imgType);
+$stmt->fetch();
+$stmt->close();
+$conn->close();
+
+// Convert the binary image data to base64
+if ($imgData) {
+    $base64Image = 'data:' . $imgType . ';base64,' . base64_encode($imgData);
+} else {
+    // Use a default image if no profile picture is uploaded
+    $base64Image = '../images/profile/profile-pic.png';  // Path to default profile image
+}
+?>
+
 <div class="top_nav" id="topNav">
     <div class="nav-left">
-
         <div class="profile-dropdown">
-            <div class="profile-btn" onmouseover="closeExpandMenu()"></div>
+            <div class="profile-btn" style="background-image: url('<?php echo $base64Image; ?>');"></div>
             <div class="profile-menu">
                 <a href="../profile/"><i class="fas fa-user-edit"></i>Edit Profile</a>
                 <a href="../includes/logout.php"><i class="fas fa-sign-out-alt"></i>Log out</a>
