@@ -35,7 +35,7 @@
     // Close the database connection
     $conn->close();
 ?>
-
+<link rel="stylesheet" href="../style/paymentSuccess.css">
 <div class="thank-you-container">
     <h4>Thank You For Ordering</h4>
     <p>Your items will be packed soon</p>

@@ -1,0 +1,59 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Thank You Container */
+.thank-you-container {
+    text-align: center;
+    background-image: url(../images/background.png);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.thank-you-container h4 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.thank-you-container p {
+    font-size: 18px;
+    color: #555;
+}
+
+.thank-you-container img {
+    width: 250px;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Countdown Button */
+#returnBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#returnBtn:hover {
+    background-color: #2980b9;
+}
+
+/* Countdown text */
+#countdown {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
