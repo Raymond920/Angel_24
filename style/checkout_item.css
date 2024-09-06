@@ -15,6 +15,7 @@
     background-color: lightblue;
     width: 100%;
     margin: 0 auto;
+    padding: 10px 0;
 }
 
 .product-row img {
@@ -35,4 +36,11 @@
 
 .price-container {
     justify-self: start; /* Aligns the container to the left of its column */
+}
+
+@media (max-width: 700px) {
+    .product-row img {
+        width: 18vw;
+        height: auto;
+    }
 }

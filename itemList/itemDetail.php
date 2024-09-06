@@ -53,6 +53,7 @@
         <title><?php echo htmlspecialchars($pName); ?></title>
         <link rel="stylesheet" href="../style/mystyle1.css">
         <link rel="stylesheet" href="../style/itemDetail.css">
+        <link rel="stylesheet" href="../style/previousButton.css">
         <link rel="stylesheet" href="../style/quantitySelector.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>

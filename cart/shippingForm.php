@@ -19,30 +19,32 @@
         <div class='payment-method-container'>
             <div class='payment-options'>
             <h4>Select Payment Method:</h4>
-                <label>
-                    <input type='radio' name='payment_method' value='tng' required>
-                    <div class="payment-method-image-container">
-                        <img src='../images/payment/tng.png' alt='tng' class='payment-logo'>
-                    </div>
-                </label>
-                <label>
-                    <input type='radio' name='payment_method' value='fpx' required>
-                    <div class="payment-method-image-container">
-                    <img src='../images/payment/fpx.png' alt='FPX' class='payment-logo'>
-                    </div>
-                </label>
-                <label>
-                    <input type='radio' name='payment_method' value='mastercard' required>
-                    <div class="payment-method-image-container">
-                    <img src='../images/payment/mastercard.png' alt='Mastercard' class='payment-logo'>
-                    </div>
-                </label>
-                <label>
-                    <input type='radio' name='payment_method' value='paypal' required>
-                    <div class="payment-method-image-container">
-                    <img src='../images/payment/paypal.png' alt='PayPal' class='payment-logo'>
-                    </div>
-                </label>
+                <div>
+                    <label>
+                        <input type='radio' name='payment_method' value='tng' required>
+                        <div class="payment-method-image-container">
+                            <img src='../images/payment/tng.png' alt='tng' class='payment-logo'>
+                        </div>
+                    </label>
+                    <label>
+                        <input type='radio' name='payment_method' value='fpx' required>
+                        <div class="payment-method-image-container">
+                        <img src='../images/payment/fpx.png' alt='FPX' class='payment-logo'>
+                        </div>
+                    </label>
+                    <label>
+                        <input type='radio' name='payment_method' value='mastercard' required>
+                        <div class="payment-method-image-container">
+                        <img src='../images/payment/mastercard.png' alt='Mastercard' class='payment-logo'>
+                        </div>
+                    </label>
+                    <label>
+                        <input type='radio' name='payment_method' value='paypal' required>
+                        <div class="payment-method-image-container">
+                        <img src='../images/payment/paypal.png' alt='PayPal' class='payment-logo'>
+                        </div>
+                    </label>
+                </div>
             </div>
         </div>
         <br>

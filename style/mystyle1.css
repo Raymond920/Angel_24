@@ -62,16 +62,34 @@ body {
     font-size: 100%;
 }
 
-.bg-frame .title {
+.cart-page .bg-frame,
+.checkout-page .bg-frame {
+    position: relative;
+    display: block;
+    z-index: 3;
+    margin-top: 0;
+    background-color: rgba(239, 239, 240, 0.5);
+    font-size: 100%;
+    min-height: 100vh;
+    padding-bottom: 30px;
+}
+
+.cart-page .bg-frame .title, 
+.checkout-page .bg-frame .title {
+    color: #128afa;
+}
+
+.bg-frame .title,
+.bg-frame .search-result {
     position: relative;
     font-size: 3.5rem;
     margin-top: 0;
+    margin-bottom: 4vw;
 }
 
 .bg-frame .search-result{
-    position: relative;
     font-size: 2rem;
-    margin-top: 0;
+    line-height: 2.5;
 }
 
 @media screen and (min-width: 769px) {

@@ -12,14 +12,20 @@ if(!isset($_SESSION['username'])) {
     <head>
         <title>Check Out</title>
         <link rel="stylesheet" href="../style/mystyle1.css">
+        <link rel="stylesheet" href="../style/previousButton.css">
+        <link rel="stylesheet" href="../style/animation.css">
     </head>
     <body>
         <?php include("../includes/header.php"); ?>
         <?php include("../includes/navigation.php"); ?>
-        <button onclick="history.back()"><i class="fa fa-arrow-left"></i></button>
-        <h3>Check Out</h3>
 
-        <?php include("shippingForm.php"); ?>
+        <article class="checkout-page">
+            <section class="bg-frame">
+                <button onclick="history.back()" class="previous-button"><i class="fa fa-arrow-left"></i></button>
+                <h1 class="title"><div class="inner glitch"><span>Check Out</span></div></h1>
+            <?php include("shippingForm.php"); ?>
+            </section>
+        </article>
 
     </body>
 </html>

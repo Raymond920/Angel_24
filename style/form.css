@@ -1,3 +1,13 @@
+.shipping-form-container {
+    padding-top: 30px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding-bottom: 60px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 85%;
+}
+
 .shipping-form {
     margin: 5% auto 5% auto;
     width: 90%;
@@ -17,6 +27,11 @@
 }
 
 .payment-options {
+    display: flex;
+    gap: 20px;
+}
+
+.payment-method-container .payment-options div {
     display: flex;
     gap: 20px;
 }
@@ -87,4 +102,18 @@
 
 h4 {
     width: 60%;
+}
+
+@media (max-width: 700px) {
+    .payment-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .payment-logo {
+        width: 12vw;
+    }
+    .payment-method-container .payment-options div {
+        gap: 2vw;
+    }
 }

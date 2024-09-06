@@ -2,30 +2,6 @@
     margin-bottom: 30px;
 }
 
-.previous-button {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    border: none; /* Remove default border */
-    padding: 10px 20px; /* Add some padding */
-    font-size: 16px; /* Adjust font size */
-    cursor: pointer; /* Change cursor on hover */
-    border-radius: 5px; /* Rounded corners */
-    display: flex; /* Flexbox for aligning icon and text */
-    align-items: center; /* Vertically center the icon */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
-}
-
-.previous-button i {
-    margin-right: 8px; /* Space between the icon and text */
-    font-size: 18px; /* Adjust icon size */
-}
-
-.previous-button:hover {
-    background-color: #45a049; /* Slightly darker green */
-    transform: translateY(-2px); /* Lift the button on hover */
-}
-
 .image-detail-container {
     display: flex;
     gap: 20px;
