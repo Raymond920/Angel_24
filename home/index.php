@@ -12,6 +12,7 @@ if(!isset($_SESSION['username'])) {
     <head>
         <title>Angel 24</title>
         <link rel="stylesheet" href="../style/mystyle1.css">
+        <link rel="stylesheet" href="../style/animation.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -28,9 +29,10 @@ if(!isset($_SESSION['username'])) {
             </div>
         </div>
 
-        <div class="content-container">
+        <div class="content-container fade-in-element">
             <?php include('displayAll.php'); ?>
         </div>
+        <script src="../javascript/animation.js"></script>
 
     </body>
 </html>

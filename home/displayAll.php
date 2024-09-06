@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../style/mystyle1.css">
+<link rel="stylesheet" href="../style/animation.css">
 <link rel="stylesheet" href="../style/displayItem.css">
 <?php
     $conn = mysqli_connect("localhost", "root", "", "angel_24");
@@ -25,7 +26,7 @@
     while ($stmt->fetch()) {
         // Wrap the item card with an anchor tag
         echo "<a href='../itemList/itemDetail.php?product_id=$pID' class='item-link'>";
-        echo "<div class='item-card' id='$pID'>";
+        echo "<div class='item-card fade-in-element' id='$pID'>";
         echo "<img src='$pImage' alt='$pName'>";
         echo "<h4>$pName</h4>";
         echo "<p>RM $price</p>";

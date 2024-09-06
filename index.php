@@ -1,3 +1,4 @@
+<?php include("createDatabase.php"); ?>
 <?php 
     session_start();
     $_SESSION = array();

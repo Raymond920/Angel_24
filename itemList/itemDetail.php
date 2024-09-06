@@ -91,7 +91,7 @@
                         <p class="out-of-stock">Out of Stock</p>
                     <?php } ?>
 
-                    <script src="quantitySelector.js"></script>
+                    <script src="../javascript/quantitySelector.js"></script>
 
                 </div>
             </div>

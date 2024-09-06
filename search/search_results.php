@@ -12,6 +12,7 @@ if(!isset($_SESSION['username'])) {
 <head>
     <title>Search Results</title>
     <link rel="stylesheet" href="../style/mystyle1.css">
+    <link rel="stylesheet" href="../style/animation.css">
     <link rel="stylesheet" href="../style/displayItem.css">
 </head>
 <body>
@@ -52,11 +53,17 @@ if(!isset($_SESSION['username'])) {
             // Display items
             echo "<div class='itemListContainer'>";
             $resultsFound = false;
+            $i = 0;
             while ($stmt->fetch()) {
                 $resultsFound = true;
                 // Wrap the item card with an anchor tag
                 echo "<a href='../itemList/itemDetail.php?product_id=$pID' class='item-link'>";
-                echo "<div class='item-card' id='$pID'>";
+                if ($i < 12) {
+                    echo "<div class='item-card' id='$pID'>";
+                    $i += 1;
+                } else {
+                    echo "<div class='item-card fade-in-element' id='$pID'>";
+                }
                 echo "<img src='$pImage' alt='$pName'>";
                 echo "<h4>$pName</h4>";
                 echo "<p>RM $price</p>";
@@ -80,6 +87,6 @@ if(!isset($_SESSION['username'])) {
         }
         ?>
     </div>
-
+    <script src="../javascript/animation.js"></script>
 </body>
 </html>
