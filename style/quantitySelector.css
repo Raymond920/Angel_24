@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .quantity-selector {
@@ -34,4 +36,20 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+
+.add-to-cart-button {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: right;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+    border: 0;
 }

@@ -36,8 +36,13 @@
 }
 
 .item-card:hover {
-    /* opacity: 0.5; */
-    transform: translateZ(30px) scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Lift the card slightly */
+}
+
+.item-card:active {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reduce shadow when pressed */
+    transform: translateY(0); /* Bring the card back to its original position */
 }
 
 .item-card img {

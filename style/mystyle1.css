@@ -100,18 +100,16 @@ h2 {
 }
 
 h3 {
-    position: relative;
-    font-size: 2rem;
-    left: 20px;
+    font-size: 1.5rem;
     width: 80%;
 }
-
+/*
 h4 {
     position: relative;
     font-size: 1.5rem;
     left: 20px;
     width: 80%;
-}
+} */
 
 
 

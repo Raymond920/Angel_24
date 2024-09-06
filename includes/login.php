@@ -48,7 +48,7 @@
                 $_SESSION['error'] = "Incorrect password. Please try again.";
                 header("Location:../");
                 $stmt->close();
-                $conn->close();
+                $conn->close(); 
                 exit;
             }
         } else {

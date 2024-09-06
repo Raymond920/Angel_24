@@ -1,12 +1,45 @@
+.item-detail-page {
+    margin-bottom: 30px;
+}
+
+.previous-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Add some padding */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer; /* Change cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    display: flex; /* Flexbox for aligning icon and text */
+    align-items: center; /* Vertically center the icon */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.previous-button i {
+    margin-right: 8px; /* Space between the icon and text */
+    font-size: 18px; /* Adjust icon size */
+}
+
+.previous-button:hover {
+    background-color: #45a049; /* Slightly darker green */
+    transform: translateY(-2px); /* Lift the button on hover */
+}
+
 .image-detail-container {
-    display: flex;  /* Use flexbox for horizontal alignment */
-    gap: 20px;  /* Adjust gap between the image and details */
-    justify-content: center;  /* Center the content horizontally */
-    align-items: flex-start;  /* Align items to the top */
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
     max-width: 1200px;
     margin: auto;
-    flex-direction: row;  /* Ensures the image and details are side by side by default */
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: white;
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    padding: 5vh 0;
 }
 
 .image-container {
@@ -14,7 +47,6 @@
     justify-content: center; /* Centers the image horizontally within the container */
     align-items: center; /* Centers the image vertically within the container */
     width: 60%; /* Adjust width as needed */
-    border: 1px solid #ccc; /* Optional border for visualization */
     box-sizing: border-box; /* Ensures padding and borders are included in width/height */
 }
 
@@ -32,14 +64,44 @@
     box-sizing: border-box; /* Ensures padding and borders are included in width/height */
 }
 
+.item-detail-title {
+    text-align: center;
+    background: url(../images/newrelease_headline.png) no-repeat center center / 100% auto;
+    max-width: 600px;
+    margin: 0px auto 40px auto;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.item-detail-title span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 28px;
+    padding: 25px 0;
+    color: #fff;
+}
+
 /* Responsive adjustments */
 @media(max-width: 765px) {
     .image-detail-container {
         flex-direction: column;  /* Stack elements vertically on smaller screens */
     }
 
-    .image-container,
-    .detail-container {
+    .image-container {
         width: 100%; /* Full width on smaller screens */
+    }
+
+    .detail-container {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .item-detail-title {
+        margin-bottom: 5%;
+    }
+
+    .item-detail-title span {
+        font-size: 4vw;
+        padding: 4vw 0;
     }
 }
