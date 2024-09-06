@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    $_SESSION = array();
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +18,5 @@
         </video>
         
         <?php include("includes/loginForm.php"); ?>
-        
     </body>
 </html>

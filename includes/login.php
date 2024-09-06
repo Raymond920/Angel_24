@@ -14,7 +14,7 @@
         $remember = isset($_POST['remember']);
 
         // Prepare and bind
-        $stmt = $conn->prepare("SELECT username, password, email, phone_no FROM user WHERE username = ?");
+        $stmt = $conn->prepare("SELECT username, password, email, phone_no FROM user WHERE BINARY username = ?");
         $stmt->bind_param("s", $user);
 
         // Execute the statement
@@ -22,6 +22,7 @@
 
         // Bind result variables
         $stmt->bind_result($db_username, $db_password, $db_email, $db_phone_no);
+        echo "";
 
         // Fetch the result
         if ($stmt->fetch()) {
