@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    $_SESSION['nameErr'] = $_SESSION['phoneErr'] = $_SESSION['imgErr'] = false;
 ?>
 
 <!DOCTYPE html>

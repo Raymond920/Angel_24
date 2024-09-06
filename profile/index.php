@@ -1,7 +1,143 @@
 <?php 
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "angel_24";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// if(!($_SESSION["error"] = FALSE)){
+//     $nameErr = $emailErr = $phoneErr = $imgErr = "";
+// }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the username and password from the form
+    $username = $_POST['name'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $phoneno = $_POST['phoneno'];
+    
+    $db_username = $_SESSION['username'];
+    $db_password = $_SESSION['password'];
+    $db_email = $_SESSION['email'];
+    $db_phoneno = $_SESSION['phoneno'];
+
+    // validate username
+    if ($username !== "" && $username !== $db_username) {
+        $stmt_check = $conn->prepare("SELECT COUNT(*) FROM user WHERE username = ?");
+        $stmt_check->bind_param("s", $username);
+        $stmt_check->execute();
+        $stmt_check->bind_result($count);
+        $stmt_check->fetch();
+        $stmt_check->close();
+
+        if ($count > 0) {
+            $_SESSION['nameErr'] = true;
+            $username = $db_username;
+        } else {
+            $_SESSION['nameErr'] = false;
+            $_SESSION['username'] = $username;
+        }
+    } else {
+        $username = $db_username;
+        $_SESSION['nameErr'] = false;
     }
+
+    //validate password
+    if ($password!== ""){
+        $_SESSION['password'] = $password;
+    }else {
+        $password = $db_password;
+    }
+
+    //validate email
+    if ($email!== ""){
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $_SESSION['email'] = $email;
+        }else {
+            $email = $db_email;
+        }
+    }else {
+        $email = $db_email;
+    }
+
+    //validate phone
+    if ($phoneno!== ""){
+        if (!preg_match("/^[0-9]{10,11}$/", $phoneno)) {
+            $_SESSION['phoneErr'] = true;
+            $phoneno = $db_phoneno;
+        }else{
+            $_SESSION['phoneErr'] = false;
+            $_SESSION['phoneno'] = $phoneno;
+        }
+    }else {
+        $phoneno = $db_phoneno;
+        $_SESSION['phoneErr'] = false;
+    }
+
+    //validate uploaded file
+    $allowedExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/bmp', 'image/webp'];
+    $imgType = $_FILES['image']['type'];
+    if(in_array($imgType, $allowedExtensions)){
+    if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
+        if (getimagesize($_FILES["image"]["tmp_name"])){
+            $_SESSION['imgErr'] = false;
+            $imgTmpPath = $_FILES['image']['tmp_name'];
+            $imgData = file_get_contents($imgTmpPath);
+            $imgType = $_FILES['image']['type'];
+        } else {
+            $imgData = file_get_contents("../images/profile/profile-pic.png");
+            $imgType = mime_content_type("../images/profile/profile-pic.png");
+            $_SESSION['imgErr'] = true;
+        }
+    }
+    }else if ($_FILES['image']['error'] == UPLOAD_ERR_NO_FILE){
+        $imgData = file_get_contents("../images/profile/profile-pic.png");
+        $imgType = mime_content_type("../images/profile/profile-pic.png");
+    } else {
+        $_SESSION['imgErr'] = true;
+    }
+
+    // Redirect to the edit profile page after successfully edit profile
+    if ($_SESSION['nameErr'] == false && $_SESSION['phoneErr'] == false && $_SESSION['imgErr'] == false){
+        // Prepare an SQL statement and bind
+        $stmt = $conn->prepare("UPDATE user SET username = ?, password = ?, email = ?, phone_no = ? WHERE username = ?");
+        $stmt->bind_param("sssss", $username, $password, $email, $phoneno, $db_username);
+
+        // Upload profile picture
+        $stmt1 = $conn->prepare("UPDATE profile_pic SET username=?, image_data = ?, image_type = ? WHERE username = ?");
+        $stmt1->bind_param("ssss", $username, $imgData, $imgType, $db_username);
+
+        //Execute the statement
+        if ($stmt->execute() && $stmt1->execute()){
+            header("location:index.php");
+            exit();
+        }
+        else {
+            echo "Error: " . $stmt->error;
+        }
+
+        $stmt->close();
+        $stmt1->close();
+        $conn->close();
+    }else{
+    }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +146,7 @@
         <title>Edit profile</title>
         <link rel="stylesheet" href="../style/mystyle1.css">
         <link rel="stylesheet" href="../style/edit_profile.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <?php include("../includes/header.php"); ?>
@@ -29,24 +166,38 @@
         </div>
 
         <div class="edit-form">
-            <form action="profile_edit_form.php" enctype="multipart/form-data" class="profile_edit_form" method="POST">
-                <label for="name">New Username:</label><br>
-                <input type="text" id="name" class="name" name="name" placeholder="<?php echo htmlspecialchars($username);?>"><br><br>
+        <form action="" enctype="multipart/form-data" class="profile_edit_form" method="POST">
+        <label for="name">New Username:</label><br>
+        <input type="text" id="name" class="name" name="name" placeholder="<?php echo htmlspecialchars("unchanged if empty");?>">
+        <span class="error">
+            <?php if($_SESSION['nameErr'] == true){
+                echo '<br>Username already exists'; 
+            }?>
+        </span><br><br>
 
-                <label for="password">New Password:</label><br>
-                <input type="text" id="password" name="password" placeholder="<?php echo htmlspecialchars($password);?>"><br><br>
+        <label for="password">New Password:</label><br>
+        <input type="text" id="password" name="password" placeholder="<?php echo htmlspecialchars("password here");?>"><br><br>
 
-                <label for="email">New Email:</label><br>
-                <input type="email" id="email" name="email" placeholder="<?php echo htmlspecialchars($email);?>"><br><br>
+        <label for="email">New Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="<?php echo htmlspecialchars($email);?>"><br><br>
 
-                <label for="phoneno">New Phone number:</label><br>
-                <input type="tel" id="phoneno" name="phoneno" placeholder="<?php echo htmlspecialchars($phoneno);?>"><br><br>
+        <label for="phoneno">New Phone number:</label><br>
+        <input type="tel" id="phoneno" name="phoneno" placeholder="<?php echo htmlspecialchars($phoneno);?>">
+        <span class="error">
+            <?php if($_SESSION['phoneErr'] == true){
+                echo '<br>Invalid phone number'; 
+            }?></span><br><br>
 
-                <label for="image">New profile picture:</label><br>
-                <input type="file" name="image" id="image" accept="image/*"><br><br><br>
+        <label for="image">New profile picture:</label><br>
+        <input type="file" name="image" id="image" accept="image/*">
+        <span class="error">
+            <?php if($_SESSION['imgErr'] == true){
+                echo '<br>Invalid file uploaded'; 
+            }?>
+        <br><br><br>
 
-                <button type="submit" class="editbtn">Edit profile</button>
-            </form>
-        </div>
+        <button type="submit" class="editbtn">Edit profile</button>
+    </form>
+    </div>
     </body>
 </html>
