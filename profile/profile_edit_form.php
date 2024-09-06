@@ -23,9 +23,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db_email = $_SESSION['email'];
     $db_phoneno = $_SESSION['phoneno'];
 
-    if ($username!== ""){
-        $_SESSION['username'] = $username;
-    }else {
+    if ($username !== "" && $username !== $db_username) {
+        $stmt_check = $conn->prepare("SELECT COUNT(*) FROM user WHERE username = ?");
+        $stmt_check->bind_param("s", $username);
+        $stmt_check->execute();
+        $stmt_check->bind_result($count);
+        $stmt_check->fetch();
+        $stmt_check->close();
+
+        if ($count > 0) {
+            echo 'Username already exists. Please choose a different username.';
+            exit; // Stop further execution
+        } else {
+            $_SESSION['username'] = $username;
+        }
+    } else {
         $username = $db_username;
     }
 
