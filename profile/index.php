@@ -14,10 +14,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// if(!($_SESSION["error"] = FALSE)){
-//     $nameErr = $emailErr = $phoneErr = $imgErr = "";
-// }
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the username and password from the form
     $username = $_POST['name'];
@@ -83,27 +79,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['phoneErr'] = false;
     }
 
+    // Retrieve the current profile picture
+    $stmt2 = $conn->prepare("SELECT image_data, image_type FROM profile_pic WHERE username = ?");
+    $stmt2->bind_param("s", $db_username);
+    $stmt2->execute();
+    $stmt2->bind_result($currentImgData, $currentImgType);
+    $stmt2->fetch();
+    $stmt2->close();
+
     //validate uploaded file
-    $allowedExtensions = ['image/jpeg', 'image/png', 'image/jpg', 'image/bmp', 'image/webp'];
-    $imgType = $_FILES['image']['type'];
-    if(in_array($imgType, $allowedExtensions)){
-    if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
+    if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK && in_array($_FILES['image']['type'], ['image/jpeg', 'image/png', 'image/jpg', 'image/bmp', 'image/webp'])) {
         if (getimagesize($_FILES["image"]["tmp_name"])){
             $_SESSION['imgErr'] = false;
             $imgTmpPath = $_FILES['image']['tmp_name'];
             $imgData = file_get_contents($imgTmpPath);
             $imgType = $_FILES['image']['type'];
         } else {
-            $imgData = file_get_contents("../images/profile/profile-pic.png");
-            $imgType = mime_content_type("../images/profile/profile-pic.png");
             $_SESSION['imgErr'] = true;
+            $imgData = $currentImgData; // Keep the current image
+            $imgType = $currentImgType; // Keep the current image type
         }
-    }
-    }else if ($_FILES['image']['error'] == UPLOAD_ERR_NO_FILE){
-        $imgData = file_get_contents("../images/profile/profile-pic.png");
-        $imgType = mime_content_type("../images/profile/profile-pic.png");
+    } else if ($_FILES['image']['error'] == UPLOAD_ERR_NO_FILE){
+        $imgData = $currentImgData; // No new image uploaded, use current image
+        $imgType = $currentImgType; // No new image type
     } else {
         $_SESSION['imgErr'] = true;
+        $imgData = $currentImgData; // Keep the current image if upload fails
+        $imgType = $currentImgType;
     }
 
     // Redirect to the edit profile page after successfully edit profile
@@ -112,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare("UPDATE user SET username = ?, password = ?, email = ?, phone_no = ? WHERE username = ?");
         $stmt->bind_param("sssss", $username, $password, $email, $phoneno, $db_username);
 
-        // Upload profile picture
+        // Update profile picture
         $stmt1 = $conn->prepare("UPDATE profile_pic SET username=?, image_data = ?, image_type = ? WHERE username = ?");
         $stmt1->bind_param("ssss", $username, $imgData, $imgType, $db_username);
 
@@ -129,6 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt1->close();
         $conn->close();
     }else{
+        // Handle errors
     }
 }
 
@@ -139,6 +142,7 @@ function test_input($data) {
     return $data;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
