@@ -37,7 +37,7 @@ if ($imgData) {
 <div class="top_nav" id="topNav">
     <div class="nav-left">
         <div class="profile-dropdown">
-            <div class="profile-btn" style="background-image: url('<?php echo $base64Image; ?>');"></div>
+            <div class="profile-btn" style="background-image: url('<?php echo $base64Image; ?>');" onmouseover="closeExpandMenu()"></div>
             <div class="profile-menu">
                 <a href="../profile/"><i class="fas fa-user-edit"></i>Edit Profile</a>
                 <a href="../includes/logout.php"><i class="fas fa-sign-out-alt"></i>Log out</a>
@@ -124,17 +124,4 @@ function checkScreenWidth() {
 }
 
 window.addEventListener('resize', checkScreenWidth);
-
-window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("topNav");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.scrollY >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
 </script>
