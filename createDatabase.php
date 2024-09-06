@@ -24,7 +24,6 @@
             do {
                 // Continue processing results
             } while ($conn->next_result());
-            echo "SQL script executed successfully.";
         } else {
             echo "Error executing SQL script: " . $conn->error;
         }
