@@ -48,7 +48,7 @@ if(!isset($_SESSION['username'])) {
                     echo "<article class='display-item-page'>";
                     echo "<section class='bg-frame'>";
                     // Display title
-                    echo "<h1 class='title'><div class='inner'>$product_type</div></h1>";
+                    echo "<h1 class='title'><div class='inner'><span>$product_type</span></div></h1>";
                     
                     echo "<div class='itemListContainer'>";
                     while ($stmt->fetch()) {

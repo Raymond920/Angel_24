@@ -16,10 +16,10 @@
     // Bind result variables
     $stmt->bind_result($pID, $pName, $pImage, $price);
 
-    echo "<article class='display-item-page fade-in'>";
+    echo "<article class='display-item-page'>";
     echo "<section class='bg-frame'>";
     // Display title
-    echo "<h1 class='title'><div class='inner'>Discover</div></h1>";
+    echo "<h1 class='title'><div class='inner glitch'><span>Discover</span></div></h1>";
     
     echo "<div class='itemListContainer'>";
     while ($stmt->fetch()) {

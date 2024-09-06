@@ -47,7 +47,7 @@ if(!isset($_SESSION['username'])) {
             echo "<article class='display-item-page'>";
             echo "<section class='bg-frame'>";
             // Display title
-            echo "<h3><div class='inner'>Search Results for: $search</div></h3>";
+            echo "<h1 class='search-result'><div class='inner glitch'><span>Search Results for: $search</span></div></h1>";
 
             // Display items
             echo "<div class='itemListContainer'>";
