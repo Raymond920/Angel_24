@@ -40,6 +40,7 @@ Admin users can log in to access the admin panel, where they can view the users 
 - Search products
 - Add products to cart and modify cart items
 - Secure checkout process with payment integration
+- Write Feedback and browse admin contact
 - Admin dashboard for viewing feedback and advice
 
 
