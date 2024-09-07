@@ -22,7 +22,7 @@ This project is a web-based application that allows users to browse products, ad
    ```
 3. Set up the database:
    - Access MyPHPAdmin 
-   - Import the `database.sql` file 
+   - Import the `angel_24.sql` file 
 
 4.Access through a wamp or Xampp localhost server
    ```
