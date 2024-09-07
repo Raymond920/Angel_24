@@ -1,7 +1,7 @@
-#Angel_24 Online Shopping Platform
+# Angel_24 Online Shopping Platform
 A simple web application for users to browse and purchase products online.
 
-##Description
+## Description
 This project is a web-based application that allows users to browse products, add them to their cart, and proceed through a secure checkout process and also providing feedback.User register as a member and login to edit profile and shopping.
 
 ## Table of Contents
