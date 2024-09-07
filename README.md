@@ -35,7 +35,7 @@ Admin users can log in to access the admin panel, where they can view the users 
 
 ## Features
 - User registration and login
--Edit Profile
+- Edit Profile
 - Browse products by categories
 - Search products
 - Add products to cart and modify cart items
