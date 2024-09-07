@@ -13,9 +13,15 @@
             background-color: #f4f4f4;
         }
 
+        .thank-you-page {
+            padding-top: 50px;
+            min-height: calc(100vh - 50px);
+            background-color: rgba(239, 239, 240, 0.5);
+        }
+
         .thank-you-container {
             width: 50%;
-            margin: 50px auto;
+            margin: 0px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -56,13 +62,13 @@
 <body>
     <?php include("../includes/header.php"); ?>
     <?php include("../includes/navigation.php"); ?>
-
-    <div class="thank-you-container">
-        <h1>Thank You for Your Message!</h1>
-        <p>We appreciate you contacting us. One of our customer service colleagues will get back in touch with you soon! Have a great day!</p>
-        <a href="../home/index.php" class="return-link">Return to Home</a>
+    
+    <div class="thank-you-page">
+        <div class="thank-you-container">
+            <h1>Thank You for Your Message!</h1>
+            <p>We appreciate you contacting us. One of our customer service colleagues will get back in touch with you soon! Have a great day!</p>
+            <a href="../home/index.php" class="return-link">Return to Home</a>
+        </div>
     </div>
-
-    <?php include("../includes/footer.php"); ?>
 </body>
 </html>

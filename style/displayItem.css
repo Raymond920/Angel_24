@@ -26,9 +26,10 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 16px;
     width: 25vh;
+    min-height: 250px;
     box-sizing: border-box;
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit text color */
+    text-decoration: none;
+    color: inherit; 
     /* Animation */
     transition: transform 0.1s ease-in-out;
     transform-style: preserve-3d;

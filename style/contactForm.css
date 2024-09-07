@@ -4,9 +4,15 @@ body {
     padding: 0;
 }
 
+.contact-page {
+    padding-top: 50px;
+    min-height: 100vh;
+    background-color: rgba(239, 239, 240, 0.5);
+}
+
 .contact-container {
     width: 50%;
-    margin: 50px auto;
+    margin: 0px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

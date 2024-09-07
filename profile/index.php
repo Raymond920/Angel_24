@@ -155,53 +155,55 @@ function test_input($data) {
     <body>
         <?php include("../includes/header.php"); ?>
         <?php include("../includes/navigation.php"); ?>
-        <div class="present-profile">
-            <img src="../includes/profile_pic.php" alt="Image from Database"><br>
-            <?php
-            $username = $_SESSION['username'];
-            $password = $_SESSION['password'];
-            $email = $_SESSION['email'];
-            $phoneno = $_SESSION['phoneno'];
-            echo "Username: ". $username. "<br>";
-            echo "Password: ". $password. "<br>";
-            echo "Email: ". $email. "<br>";
-            echo "Phone number: ". $phoneno. "<br>";
-            ?>
+        <div class="edit-profile-page">
+            <div class="present-profile">
+                <img src="../includes/profile_pic.php" alt="Image from Database"><br>
+                <?php
+                $username = $_SESSION['username'];
+                $password = $_SESSION['password'];
+                $email = $_SESSION['email'];
+                $phoneno = $_SESSION['phoneno'];
+                echo "Username: ". $username. "<br>";
+                echo "Password: ". $password. "<br>";
+                echo "Email: ". $email. "<br>";
+                echo "Phone number: ". $phoneno. "<br>";
+                ?>
+            </div>
+
+            <div class="edit-form">
+            <form action="" enctype="multipart/form-data" class="profile_edit_form" method="POST">
+            <label for="name">New Username:</label><br>
+            <input type="text" id="name" class="name" name="name" placeholder="<?php echo htmlspecialchars("unchanged if empty");?>">
+            <span class="error">
+                <?php if($_SESSION['nameErr'] == true){
+                    echo '<br>Username already exists'; 
+                }?>
+            </span><br><br>
+
+            <label for="password">New Password:</label><br>
+            <input type="text" id="password" name="password" placeholder="<?php echo htmlspecialchars("password here");?>"><br><br>
+
+            <label for="email">New Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="<?php echo htmlspecialchars($email);?>"><br><br>
+
+            <label for="phoneno">New Phone number:</label><br>
+            <input type="tel" id="phoneno" name="phoneno" placeholder="<?php echo htmlspecialchars($phoneno);?>">
+            <span class="error">
+                <?php if($_SESSION['phoneErr'] == true){
+                    echo '<br>Invalid phone number'; 
+                }?></span><br><br>
+
+            <label for="image">New profile picture:</label><br>
+            <input type="file" name="image" id="image" accept="image/*">
+            <span class="error">
+                <?php if($_SESSION['imgErr'] == true){
+                    echo '<br>Invalid file uploaded'; 
+                }?>
+            <br><br><br>
+
+            <button type="submit" class="editbtn">Edit profile</button>
+        </form>
         </div>
-
-        <div class="edit-form">
-        <form action="" enctype="multipart/form-data" class="profile_edit_form" method="POST">
-        <label for="name">New Username:</label><br>
-        <input type="text" id="name" class="name" name="name" placeholder="<?php echo htmlspecialchars("unchanged if empty");?>">
-        <span class="error">
-            <?php if($_SESSION['nameErr'] == true){
-                echo '<br>Username already exists'; 
-            }?>
-        </span><br><br>
-
-        <label for="password">New Password:</label><br>
-        <input type="text" id="password" name="password" placeholder="<?php echo htmlspecialchars("password here");?>"><br><br>
-
-        <label for="email">New Email:</label><br>
-        <input type="email" id="email" name="email" placeholder="<?php echo htmlspecialchars($email);?>"><br><br>
-
-        <label for="phoneno">New Phone number:</label><br>
-        <input type="tel" id="phoneno" name="phoneno" placeholder="<?php echo htmlspecialchars($phoneno);?>">
-        <span class="error">
-            <?php if($_SESSION['phoneErr'] == true){
-                echo '<br>Invalid phone number'; 
-            }?></span><br><br>
-
-        <label for="image">New profile picture:</label><br>
-        <input type="file" name="image" id="image" accept="image/*">
-        <span class="error">
-            <?php if($_SESSION['imgErr'] == true){
-                echo '<br>Invalid file uploaded'; 
-            }?>
-        <br><br><br>
-
-        <button type="submit" class="editbtn">Edit profile</button>
-    </form>
     </div>
     </body>
 </html>

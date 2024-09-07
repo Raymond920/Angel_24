@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "M PLUS 1", sans-serif;
     background-color: #f2f2f2;
 }
 
@@ -9,7 +9,7 @@ body {
     margin: 2% 0 0 3%;
     padding: 20px;
     width: 250px;
-    height: auto;
+    height: 250px;
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -39,8 +39,9 @@ body {
 
 /* Edit form styling */
 .edit-form {
-    float: right;
-    margin: 2% 5% 0 1%;
+    margin-top: 2%;
+    margin-right: 5%;
+    margin-left: auto;
     padding: 30px;
     width: 50%;
     height: auto;
@@ -105,21 +106,26 @@ button.editbtn:focus {
     margin-bottom: 10px;
 }
 
-/* Styling for overall layout */
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 auto;
-    padding: 20px;
+
+
+.edit-profile-page {
+    background-color: rgba(0, 215, 251, 0.5);
+    min-height: 100vh;
+    padding: 20px 0;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('background-pattern.png');
-    opacity: 0.05;
-    z-index: -1;
+@media (max-width: 900px) {
+    .edit-profile-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 10px;
+    }
+    .present-profile,
+    .edit-form {
+        margin: 0px auto;
+        width: 80%;
+        padding: 20px;
+    }
 }
