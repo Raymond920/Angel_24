@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $db_username;
         } else {
             $_SESSION['nameErr'] = false;
-            $_SESSION['username'] = $username;
+            
         }
     } else {
         $username = $db_username;
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //validate password
     if ($password!== ""){
-        $_SESSION['password'] = $password;
+        
     }else {
         $password = $db_password;
     }
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //validate email
     if ($email!== ""){
         if (filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $_SESSION['email'] = $email;
+            
         }else {
             $email = $db_email;
         }
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $phoneno = $db_phoneno;
         }else{
             $_SESSION['phoneErr'] = false;
-            $_SESSION['phoneno'] = $phoneno;
+            
         }
     }else {
         $phoneno = $db_phoneno;
@@ -100,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $imgType = $currentImgType; // Keep the current image type
         }
     } else if ($_FILES['image']['error'] == UPLOAD_ERR_NO_FILE){
+        $_SESSION['imgErr'] = false;
         $imgData = $currentImgData; // No new image uploaded, use current image
         $imgType = $currentImgType; // No new image type
     } else {
@@ -110,6 +111,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Redirect to the edit profile page after successfully edit profile
     if ($_SESSION['nameErr'] == false && $_SESSION['phoneErr'] == false && $_SESSION['imgErr'] == false){
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
+        $_SESSION['email'] = $email;
+        $_SESSION['phoneno'] = $phoneno;
         // Prepare an SQL statement and bind
         $stmt = $conn->prepare("UPDATE user SET username = ?, password = ?, email = ?, phone_no = ? WHERE username = ?");
         $stmt->bind_param("sssss", $username, $password, $email, $phoneno, $db_username);
@@ -131,6 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt1->close();
         $conn->close();
     }else{
+        echo "Error: ";
         // Handle errors
     }
 }
