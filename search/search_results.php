@@ -70,7 +70,6 @@ if(!isset($_SESSION['username'])) {
                 echo "</div>";
                 echo "</a>";
             }
-            echo "</div>";
 
             // If no results were found, display a message
             if (!$resultsFound) {
@@ -82,6 +81,7 @@ if(!isset($_SESSION['username'])) {
             // Close connections
             $stmt->close();
             $conn->close();
+            echo "</div>";
         } else {
             echo "<p>No search query entered.</p>";
         }

@@ -60,6 +60,8 @@ body {
     background-color: rgba(0, 215, 251, 0.5);
     color: #128afa;
     font-size: 100%;
+    min-height: 100vh;
+    padding-bottom: 20px;
 }
 
 .cart-page .bg-frame,
