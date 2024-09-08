@@ -32,6 +32,7 @@ This project is a web-based application that allows users to browse products, ad
 After setting up the platform, users can register as a member and login to visit the homepage to browse available products. They can add products to the shopping cart, view the cart, and proceed to checkout. Payment integration is provided via PayPal (or any other payment gateway).User also can edit their profile and providing feedback.
 
 Admin users can log in to access the admin panel, where they can view the users feedback
+('Angel_24/contact/admin.php')
 
 ## Features
 - User registration and login
