@@ -136,7 +136,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt1->close();
         $conn->close();
     }else{
-        echo "Error: ";
         // Handle errors
     }
 }
